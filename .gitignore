@@ -1,0 +1,7 @@
+.vscode/
+.idea/
+**/transcript_env/
+**/__pycache__
+.coverage
+.eslintrc.json
+**/fonts/
