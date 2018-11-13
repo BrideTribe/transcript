@@ -1,5 +1,8 @@
-from flask import Flask, render_template, url_for, request, flash
-from forms import GraduateApplicationForm, PostGraduateApplicationForm, GraduateRecipientForm, PostGraduateRecipientForm, ReturningGraduateUserForm
+from flask import Flask, render_template, url_for, request, flash, redirect
+from forms import (GraduateApplicationForm, PostGraduateApplicationForm, 
+                    GraduateRecipientForm, PostGraduateRecipientForm, 
+                    ReturningGraduateUserForm)
+
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '8b245eb98f56f7c909adbe0fada726b32e29a28f'
@@ -13,11 +16,11 @@ def home():
 @app.route("/graduate", methods=['POST', 'GET'])
 def graduate():
     form = GraduateApplicationForm()
-    form2 = ReturningGraduateUserForm()
     
     if form.validate_on_submit():
-        flash(f'Account created for {form.surname.data}')
-    return render_template('graduate.html', title='Graduate Application', form=form, form2=form2)
+        flash(f'Account created for {form.surname.data}', 'success')
+        return redirect(url_for('grad_recipient'))
+    return render_template('graduate.html', title='Graduate Application', form=form)
 
 @app.route("/postgraduate", methods=['POST', 'GET'])
 def postgraduate():
@@ -29,7 +32,7 @@ def postgraduate():
 def grad_recipient():
     form = GraduateRecipientForm()
 
-    return render_template('recipient.html', title='Recipient Information', form=form)
+    return render_template('grad_recipient.html', title='Recipient Information', form=form)
 
 @app.route("/postgrad_recipient", methods=['POST', 'GET'])
 def postgrad_recipient():
