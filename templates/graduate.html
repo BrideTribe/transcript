@@ -1,6 +1,85 @@
 {% extends "layout.html" %}
 {% block content %}
-    <article class="media content-section">
-          <h2>Graduate page</h2>
-    </article>
- {% endblock content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4"><b>TRANSCRIPT REQUEST</b></legend>
+                <legend><h5>Graduate Transcript Application</h5></legend>
+                <div class="form-group">
+                    {{ form.surname.label(class="form-control-label") }}:
+                    {{ form.surname(class="form-control form-control-sm") }}
+                </div>
+                <div class="form-group">
+                    {{ form.first_name.label(class="form-control-label") }}:
+                    {{ form.first_name(class="form-control form-control-sm") }}
+                </div>
+                <div class="form-group">
+                    {{ form.marital_status.label(class="form-control-label") }}:
+                    {{ form.marital_status(class="form-control form-control-sm") }}
+                </div>
+                <div class="form-group">
+                    {{ form.matric_no.label(class="form-control-label") }}:
+                    {{ form.matric_no(class="form-control form-control-sm") }}
+                </div>
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }}:
+                    {{ form.email(class="form-control form-control-sm") }}
+                </div>
+                <div class="form-group">
+                    {{ form.phone.label(class="form-control-label") }}:
+                    {{ form.phone(class="form-control form-control-sm") }}
+                </div>
+                <div class="form-group">
+                    {{ form.faculty.label(class="form-control-label") }}:
+                    {{ form.faculty(class="form-control form-control-sm") }}
+                </div>
+                <div class="form-group">
+                    {{ form.department.label(class="form-control-label") }}:
+                    {{ form.department(class="form-control form-control-sm") }}
+                </div>
+                <div class="form-group">
+                    {{ form.year_of_grad.label(class="form-control-label") }}:
+                    {{ form.year_of_grad(class="form-control form-control-sm") }}
+                </div>
+                <div class="form-group">
+                    {{ form.permanent_addr.label(class="form-control-label") }}:
+                    {{ form.permanent_addr(class="form-control form-control-sm") }}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}
+{% block sidebar %}
+    <div class="content-section">
+        <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group">
+                    <h5 class="text-center">RETURNING USER ONLY</h5>
+                    <p class='text-muted text-center'>Make sure this is the same information you provided.</p>
+                    <div class="form-group">
+                        {{ form2.matric_no.label(class="form-control-label") }}:
+                        {{ form2.matric_no(class="form-control form-control-sm") }}
+                    </div>
+                    <div class="form-group">
+                        {{ form2.faculty.label(class="form-control-label") }}:
+                        {{ form2.faculty(class="form-control form-control-sm") }}
+                    </div>
+                    <div class="form-group">
+                        {{ form2.department.label(class="form-control-label") }}:
+                        {{ form2.department(class="form-control form-control-sm") }}
+                    </div>
+                    <div class="form-group">
+                        {{ form2.year_of_grad.label(class="form-control-label") }}:
+                        {{ form2.year_of_grad(class="form-control form-control-sm") }}
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    {{ form2.confirm(class="btn btn-outline-info") }}
+                </div>
+            </form>
+    </div>
+{% endblock %}
