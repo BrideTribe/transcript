@@ -35,7 +35,7 @@ class ReturningGraduateUserForm(FlaskForm):
     faculty = StringField('Faculty', validators=[DataRequired(), Length(min=1, max=250)])
     department = StringField('Department', validators=[DataRequired(), Length(min=1, max=500)])
     year_of_grad = StringField('Year of Graduation', validators=[DataRequired(), Length(min=2, max=20)])
-    confirm = SubmitField('Confirm')
+    submit = SubmitField('Confirm')
 
 #Postgraduate Applicant Section
 class PostGraduateApplicationForm(FlaskForm):
