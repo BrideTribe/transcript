@@ -19,7 +19,7 @@ def graduate():
     
     if form.validate_on_submit():
         flash(f'Account created for {form.surname.data}', 'success')
-        return redirect(url_for('grad_recipient'))
+       
     return render_template('graduate.html', title='Graduate Application', form=form)
 
 @app.route("/postgraduate", methods=['POST', 'GET'])
