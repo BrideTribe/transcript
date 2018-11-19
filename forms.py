@@ -19,7 +19,7 @@ class GraduateApplicationForm(FlaskForm):
     submit = SubmitField('Save & Continue')
 
 class GraduateRecipientForm(FlaskForm):
-    institution_name = StringField('Institution/Organization Name', 
+    recipient_name = StringField('Institution/Organization Name', 
                                     validators=[DataRequired(), Length(min=3, max=200)])
     country = StringField('Country', validators=[DataRequired(), Length(min=2, max=200)])
     address_line = StringField('Address Line', validators=[DataRequired(), Length(min=10, max=500)])
