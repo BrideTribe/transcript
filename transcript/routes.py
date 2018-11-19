@@ -1,17 +1,9 @@
-from flask import Flask, render_template, url_for, request, flash, redirect
-from flask_sqlalchemy import SQLAlchemy
-from forms import (GraduateApplicationForm, PostGraduateApplicationForm, 
+from flask import render_template, url_for, request, flash, redirect
+from transcript import app
+from transcript.forms import (GraduateApplicationForm, PostGraduateApplicationForm, 
                     GraduateRecipientForm, PostGraduateRecipientForm, 
                     ReturningGraduateUserForm)
-from models import GraduateApplicant, GraduateRecipient
-
-
-app = Flask(__name__)
-app.config['SECRET_KEY'] = '8b245eb98f56f7c909adbe0fada726b32e29a28f'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///transcript.db'
-db = SQLAlchemy(app)
-
-
+from transcript.models import GraduateApplicant, GraduateRecipient
 
 @app.route("/")
 @app.route("/home")
@@ -44,6 +36,3 @@ def postgrad_recipient():
     form = PostGraduateRecipientForm()
 
     return render_template('recipient.html', title='Recipient Information', form=form)
-
-if __name__ == '__main__':
-    app.run(debug=True)
