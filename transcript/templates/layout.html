@@ -33,7 +33,7 @@
                     <div class="navbar-nav">
                         <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
                         <a class="nav-item nav-link" href="{{ url_for('graduate') }}">Graduate</a>
-                        <a class="nav-item nav-link" href="{{ url_for('postgraduate') }}">Post Graduate</a>
+                        <a class="nav-item nav-link" href="{{ url_for('alumni') }}">Alumni</a>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
     </header>
     <main role="main" class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 {% with messages = get_flashed_messages(with_categories=true) %}
                     {% if messages %}
                         {% for category, message in messages %}
