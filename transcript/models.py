@@ -10,6 +10,8 @@ class GraduateApplicant(db.Model):
     matric_no = db.Column(db.String(50), unique=True, nullable=False)
     email = db.Column(db.String(200), unique=True, nullable=False)
     phone = db.Column(db.String(20), unique=True, nullable=False)
+    transcript_type = db.Column(db.String(100), nullable=False)
+    degree_awarded = db.Column(db.String(50), nullable=False)
     faculty = db.Column(db.String(250), nullable=False)
     department = db.Column(db.String(250), nullable=False)
     year_of_grad = db.Column(db.String(50), nullable=False)
