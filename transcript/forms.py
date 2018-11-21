@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SelectField, TextAreaField, SubmitField, BooleanField, RadioField
+from wtforms import StringField, SelectField, TextAreaField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Length, Email
 
 class GraduateApplicantForm(FlaskForm):
@@ -12,7 +12,7 @@ class GraduateApplicantForm(FlaskForm):
     matric_no = StringField('Matriculation Number', validators=[DataRequired(), Length(min=4, max=50)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     phone = StringField('Phone Number', validators=[DataRequired(), Length(min=8, max=20)])
-    transcript_type = RadioField(u'Transcript Type', choices=[('grad', 'Graduate'), ('post', 'Post-Graduate')])
+    transcript_type = SelectField(u'Transcript Type', choices=[('default', '-- Select --'), ('grad', 'Graduate'), ('post', 'Post-Graduate')])
     degree_awarded = StringField('Degree Awarded *(Use abbreviation)*', validators=[DataRequired(), Length(min=2, max=20)])
     faculty = StringField('Faculty', validators=[DataRequired(), Length(min=1, max=250)])
     department = StringField('Department', validators=[DataRequired(), Length(min=1, max=500)])
