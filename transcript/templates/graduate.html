@@ -1,0 +1,186 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4"><b>TRANSCRIPT REQUEST</b></legend>
+                <legend><h5>Graduate Transcript Application</h5></legend>
+                <div class="form-group">
+                    {{ form.surname.label(class="form-control-label") }}:
+
+                    {% if form.surname.errors %}
+                        {{ form.surname(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.surname.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.surname(class="form-control form-control-md", placeholder="Enter surname") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.first_name.label(class="form-control-label") }}:
+
+                    {% if form.first_name.errors %}
+                        {{ form.first_name(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.first_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.first_name(class="form-control form-control-md", placeholder="Enter first name") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.marital_status.label(class="form-control-label") }}:
+                    
+                    {% if form.marital_status.errors %}
+                        {{ form.surname(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.marital_status.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.marital_status(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.matric_no.label(class="form-control-label") }}:
+                    
+                    {% if form.matric_no.errors %}
+                        {{ form.matric_no(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.matric_no.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.matric_no(class="form-control form-control-md", placeholder="Enter matric number (all in caps)") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }}:
+                    
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-md", placeholder="Enter email") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.phone.label(class="form-control-label") }}:
+                    
+                    {% if form.phone.errors %}
+                        {{ form.phone(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.phone.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.phone(class="form-control form-control-md", placeholder="Enter 11 digits phone number") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.transcript_type.label(class="form-control-label") }}:
+                    
+                    {% if form.transcript_type.errors %}
+                        {{ form.transcript_type(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.transcript_type.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.transcript_type(class="form-control form-control-md") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.degree_awarded.label(class="form-control-label") }}:
+                    
+                    {% if form.degree_awarded.errors %}
+                        {{ form.degree_awarded(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.degree_awarded.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.degree_awarded(class="form-control form-control-md", placeholder="Use abbreviation here") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.faculty.label(class="form-control-label") }}:
+                    
+                    {% if form.faculty.errors %}
+                        {{ form.faculty(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.faculty.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.faculty(class="form-control form-control-md", placeholder="Enter faculty") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.department.label(class="form-control-label") }}:
+                    
+                    {% if form.department.errors %}
+                        {{ form.department(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.department.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.department(class="form-control form-control-md", placeholder="Enter department") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.year_of_grad.label(class="form-control-label") }}:
+                    
+                    {% if form.year_of_grad.errors %}
+                        {{ form.year_of_grad(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.year_of_grad.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.year_of_grad(class="form-control form-control-md", placeholder="Use MM/YYYY format") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.permanent_addr.label(class="form-control-label") }}:
+                    
+                    {% if form.permanent_addr.errors %}
+                        {{ form.permanent_addr(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.permanent_addr.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.permanent_addr(class="form-control form-control-md", placeholder="Enter permanent home address") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div> 
+{% endblock content %}
+{% block sidebar %}
+
+{% endblock %}
