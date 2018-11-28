@@ -8,39 +8,152 @@
                 <legend><h5>Transcript Recipient Details</h5></legend>
                 <div class="form-group">
                     {{ form.recipient_name.label(class="form-control-label") }}:
-                    {{ form.recipient_name(class="form-control form-control-sm") }}
+                   
+                    {% if form.recipient_name.errors %}
+                        {{ form.recipient_name(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.recipient_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.recipient_name(class="form-control form-control-md", placeholder="Enter Receiving institution") }}
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     {{ form.country.label(class="form-control-label") }}:
-                    {{ form.country(class="form-control form-control-sm") }}
+                    
+                    {% if form.country.errors %}
+                        {{ form.country(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.country.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.country(class="form-control form-control-md", placeholder="Enter receiving institution") }}
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     {{ form.address_line.label(class="form-control-label") }}:
-                    {{ form.address_line(class="form-control form-control-sm") }}
+                    
+                    {% if form.address_line.errors %}
+                        {{ form.address_line(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.address_line.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.address_line(class="form-control form-control-md", placeholder="Enter receiver's address") }}
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     {{ form.shipping_continent.label(class="form-control-label") }}:
-                    {{ form.shipping_continent(class="form-control form-control-sm") }}
+                    
+                    {% if form.shipping_continent.errors %}
+                        {{ form.shipping_continent(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.shipping_continent.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.shipping_continent(class="form-control form-control-md", placeholder="Enter shipping continent") }}
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     {{ form.city.label(class="form-control-label") }}:
-                    {{ form.city(class="form-control form-control-sm") }}
+                    
+                    {% if form.city.errors %}
+                        {{ form.city(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.city.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.city(class="form-control form-control-md", placeholder="Enter city name") }}
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     {{ form.courier.label(class="form-control-label") }}:
-                    {{ form.courier(class="form-control form-control-sm") }}
+                    
+                    {% if form.courier.errors %}
+                        {{ form.courier(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.courier.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.courier(class="form-control form-control-md", placeholder="Enter ") }}
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     {{ form.zip_code.label(class="form-control-label") }}:
-                    {{ form.zip_code(class="form-control form-control-sm") }}
+                    
+                    {% if form.zip_code.errors %}
+                        {{ form.zip_code(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.zip_code.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.zip_code(class="form-control form-control-md", placeholder="Enter recipient zip code") }}
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     {{ form.agree.label(class="form-control-label") }}:
-                    {{ form.agree(class="form-control form-control-sm") }}
+                    
+                    {% if form.agree.errors %}
+                        {{ form.agree(class="form-control form-control-md is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.agree.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.agree }}
+                    {% endif %}
                 </div>
             </fieldset>
             <div class="form-group">
-                {{ form.submit(class="btn btn-outline-info") }}
+                <form >
+                    <script src="https://js.paystack.co/v1/inline.js"></script>
+                    <button type="button" onclick="payWithPaystack()"> Make Payment </button> 
+                </form>
+         
+                <script>
+                    function payWithPaystack(){
+                        var handler = PaystackPop.setup({
+                        key: 'pk_test_86d32aa1nV4l1da7120ce530f0b221c3cb97cbcc',
+                        email: 'customer@email.com',
+                        amount: 10000,
+                        ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+                        firstname: 'Stephen',
+                        lastname: 'King',
+                        // label: "Optional string that replaces customer email"
+                        metadata: {
+                            custom_fields: [
+                                {
+                                    display_name: "Mobile Number",
+                                    variable_name: "mobile_number",
+                                    value: "+2348012345678"
+                                }
+                            ]
+                        },
+                        callback: function(response){
+                            alert('success. transaction ref is ' + response.reference);
+                        },
+                        onClose: function(){
+                            alert('window closed');
+                        }
+                        });
+                        handler.openIframe();
+                    }
+                </script>
             </div>
         </form>
     </div>
