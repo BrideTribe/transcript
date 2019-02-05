@@ -5,17 +5,14 @@
             <script src="https://js.paystack.co/v1/inline.js"></script>
             <button type="button" onclick="payWithPaystack()"> Pay </button> 
         </form>
- 
+            
         <script>
             function payWithPaystack(){
                 var handler = PaystackPop.setup({
-                key: 'pk_test_86d32aa1nV4l1da7120ce530f0b221c3cb97cbcc',
+                key: 'pk_live_6b0fa5e3ae0104cafe87035e61865c7fbaf170d1',
                 email: 'customer@email.com',
-                amount: 10000,
+                amount: 20000,
                 ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
-                firstname: 'Stephen',
-                lastname: 'King',
-                // label: "Optional string that replaces customer email"
                 metadata: {
                     custom_fields: [
                         {
