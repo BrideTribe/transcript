@@ -29,13 +29,19 @@ def register():
     if form.validate_on_submit():
         h_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         user = User(surname=form.surname.data, 
-                    other_names=form.other_names.data,
+                    first_name=form.first_name.data,
+                    middle_name=form.middle_name.data,
+                    maiden=form.maiden.data,
                     dob=form.dob.data,
                     gender=form.gender.data,
+                    #nationality=form.nationality.data,
+                    country=form.country.data,
                     state_of_origin=form.state_of_origin.data,
+                    lga=form.lga.data,
                     marital_status=form.marital_status.data,
                     email=form.email.data, 
                     phone=form.phone.data,
+                    telephone=form.telephone.data,
                     degree_awarded=form.degree_awarded.data,
                     faculty=form.faculty.data,
                     department=form.department.data,
@@ -95,13 +101,15 @@ def account():
             picture_file = save_picture(form.picture.data)
             current_user.image_file = picture_file
         current_user.surname = form.surname.data
-        current_user.other_names = form.other_names.data 
+        current_user.first_name = form.first_name.data
+        current_user.middle_name = form.middle_name.data 
         current_user.dob = form.dob.data
         current_user.gender = form.gender.data
         current_user.state_of_origin = form.state_of_origin.data
         current_user.marital_status = form.marital_status.data
         current_user.email = form.email.data
         current_user.phone = form.phone.data
+        current_user.telephone = form.telephone.data
         current_user.degree_awarded = form.degree_awarded.data
         current_user.faculty = form.faculty.data
         current_user.department = form.department.data
@@ -115,13 +123,15 @@ def account():
         return redirect(url_for('account'))
     elif request.method == 'GET':
         form.surname.data = current_user.surname
-        form.other_names.data = current_user.other_names
+        form.first_name.data = current_user.first_name
+        form.middle_name.data = current_user.middle_name
         form.dob.data = current_user.dob
         form.gender.data = current_user.gender
         form.state_of_origin.data = current_user.state_of_origin
         form.marital_status.data = current_user.marital_status
         form.email.data = current_user.email
         form.phone.data = current_user.phone
+        form.telephone.data = current_user.telephone
         form.degree_awarded.data = current_user.degree_awarded
         form.faculty.data = current_user.faculty
         form.department.data = current_user.department
@@ -246,6 +256,10 @@ def grad_recipient():
         db.session.commit()
         return redirect(url_for('payment'))
     return render_template('grad_recipient.html', title='Recipient Information', form=form)
+
+@app.route("/alumni_view")
+def alumni_view():
+    return render_template('alumni_view.html')
 
 @app.route("/payment")
 def payment():

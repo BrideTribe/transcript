@@ -3,11 +3,15 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_mail import Mail
+from flask_assets import Bundle, Environment
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8b245eb98f56f7c909adbe0fada726b32e29a28f'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///transcript.db'
 db = SQLAlchemy(app)
+js = Bundle('jquery.countryselector.es5.min.js', 'jquery.countrySelector.js', 'lga.js', 'lga.min.js', output='gen.js')
+assets = Environment(app)
+assets.register('main_js', js)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 mail = Mail(app)

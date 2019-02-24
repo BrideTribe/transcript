@@ -8,17 +8,23 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 class User(db.Model, UserMixin):
-    #__tablename__ = 'user'
+    __tablename__ = 'user'
 
     id = db.Column(db.Integer, primary_key=True)
     surname = db.Column(db.String(100), nullable=False)
-    other_names = db.Column(db.String(100), nullable=False)
+    first_name = db.Column(db.String(100), nullable=False)
+    middle_name = db.Column(db.String(100), nullable=False)
+    maiden = db.Column(db.String(100), nullable=False)
     dob = db.Column(db.String(50), nullable=False)
     gender = db.Column(db.String(20), nullable=False)
-    state_of_origin = db.Column(db.String(50), nullable=False)
+    #nationality = db.Column(db.String(50), nullable=False)
+    country = db.Column(db.String(100), nullable=False)    
+    state_of_origin = db.Column(db.String(100), nullable=False)
+    lga = db.Column(db.String(100), nullable=False)
     marital_status = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(200), unique=True, nullable=False)
     phone = db.Column(db.String(20), unique=True, nullable=False)
+    telephone = db.Column(db.String(20), unique=True, nullable=True)
     degree_awarded = db.Column(db.String(50), nullable=False)
     faculty = db.Column(db.String(250), nullable=False)
     department = db.Column(db.String(250), nullable=False)
@@ -30,7 +36,7 @@ class User(db.Model, UserMixin):
     post = db.relationship('Post', backref='author', lazy=True)
 
     def __repr__(self):
-        return f"User('{self.surname}', '{self.other_names}', '{self.dob}', '{self.gender}', '{self.state_of_origin}', '{self.marital_status}','{self.email}', '{self.phone}', '{self.faculty}', '{self.department}', '{self.year_of_grad}', '{self.permanent_addr}', '{self.password}', '{self.image_file}')"
+        return f"User('{self.surname}', '{self.first_name}', '{self.middle_name}', '{self.maiden}' , '{self.dob}', '{self.gender}', '{self.country}', {self.state_of_origin}', '{self.lga}' , '{self.marital_status}','{self.email}', '{self.phone}', '{self.telephone}', '{self.faculty}', '{self.department}', '{self.year_of_grad}', '{self.permanent_addr}', '{self.password}', '{self.image_file}')"
 
     #create email and password reset method
     def get_reset_token(self, expires_sec=1800):

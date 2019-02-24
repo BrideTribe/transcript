@@ -20,30 +20,29 @@
 </head>
 
 <body>
-
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
-          <a class="navbar-brand mr-4" href="{{ url_for('home')}}"> <img src="{{ url_for('static', filename="images/logo.jpg")}}" alt=""> &nbsp; &nbsp;<b>UNICAL ALUMNI PORTAL</b></a>
+          <a class="navbar-brand mr-4" href="{{ url_for('home') }}"> <img src="{{ url_for('static', filename="images/logo.jpg") }}" alt=""> &nbsp; &nbsp;<b>UNICAL ALUMNI PORTAL</b></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="{{ url_for('home')}}">Home</a>
-              <a class="nav-item nav-link" href="{{ url_for('about')}}">About</a>
+              <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
+              <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
               {% if current_user.is_authenticated %}
-                <a class="nav-item nav-link" href="{{ url_for('new_post')}}">New Post</a>
-                <a class="nav-item nav-link" href="{{ url_for('account')}}">Account</a>
-                <a class="nav-item nav-link" href="{{ url_for('grad_recipient')}}">Transcript</a>
-                <a class="nav-item nav-link" href="{{ url_for('logout')}}">Logout</a>
+                <a class="nav-item nav-link" href="{{ url_for('new_post') }}">New Post</a>
+                <a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a>
+                <a class="nav-item nav-link" href="{{ url_for('grad_recipient') }}">Transcript</a>
+                <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
               {% else %}
-                <a class="nav-item nav-link" href="{{ url_for('login')}}">Login</a>
-                <a class="nav-item nav-link" href="{{ url_for('register')}}">Register</a>
-                <a class="nav-item nav-link" href="{{ url_for('alumni_view')}}">View Alumni</a>
+                <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
+                <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+                <a class="nav-item nav-link" href="{{ url_for('alumni_view') }}">View Alumni</a>
               {% endif %}
             </div>
           </div>
@@ -65,20 +64,6 @@
           {% block content %}{% endblock %}
         </div>
 
-
-
-        <div class="col-md-4">
-          <div class="content-section">
-            <h3>Our Sidebar</h3>
-            <p class='text-muted'>You can put any information here you'd like.
-              <ul class="list-group">
-                <li class="list-group-item list-group-item-light">Latest Posts</li>
-                <li class="list-group-item list-group-item-light">Announcements</li>
-                <li class="list-group-item list-group-item-light">Calendars</li>
-              </ul>
-            </p>
-          </div>
-        </div>
       </div>
     </main>
 
@@ -93,10 +78,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.0.1/js/countrySelect.js"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='gen.js') }}"></script>
-    
-    <!--<script>
+    <script>
       $("#country").countrySelect();
-    </script>-->
+    </script>
     
     {% assets "main_js" %}
       <script type="text/javascript" src="{{ ASSET_URL }}"></script>

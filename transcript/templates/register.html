@@ -21,17 +21,45 @@
                           {% endif %}
                       </div>
                       <div class="form-group">
-                          {{ form.other_names.label(class="form-control-label") }}:
+                          {{ form.first_name.label(class="form-control-label") }}:
       
-                          {% if form.other_names.errors %}
-                              {{ form.other_names(class="form-control form-control-md is-invalid") }}
+                          {% if form.first_name.errors %}
+                              {{ form.first_name(class="form-control form-control-md is-invalid") }}
                               <div class="invalid-feedback">
-                                  {% for error in form.other_names.errors %}
+                                  {% for error in form.first_name.errors %}
                                       <span>{{ error }}</span>
                                   {% endfor %}
                               </div>
                           {% else %}
-                              {{ form.other_names(class="form-control form-control-md") }}
+                              {{ form.first_name(class="form-control form-control-md") }}
+                          {% endif %}
+                      </div>
+                      <div class="form-group">
+                          {{ form.middle_name.label(class="form-control-label") }}:
+      
+                          {% if form.middle_name.errors %}
+                              {{ form.middle_name(class="form-control form-control-md is-invalid") }}
+                              <div class="invalid-feedback">
+                                  {% for error in form.middle_name.errors %}
+                                      <span>{{ error }}</span>
+                                  {% endfor %}
+                              </div>
+                          {% else %}
+                              {{ form.middle_name(class="form-control form-control-md") }}
+                          {% endif %}
+                      </div>
+                      <div class="form-group">
+                          {{ form.maiden.label(class="form-control-label") }}:
+      
+                          {% if form.maiden.errors %}
+                              {{ form.maiden(class="form-control form-control-md is-invalid") }}
+                              <div class="invalid-feedback">
+                                  {% for error in form.maiden.errors %}
+                                      <span>{{ error }}</span>
+                                  {% endfor %}
+                              </div>
+                          {% else %}
+                              {{ form.maiden(class="form-control form-control-md") }}
                           {% endif %}
                       </div>
                       <div class="form-group">
@@ -62,20 +90,66 @@
                             {{ form.gender(class="form-control form-control-md") }}
                         {% endif %}
                     </div>
+                    <!--
                     <div class="form-group">
-                        {{ form.state_of_origin.label(class="form-control-label") }}:
                         
-                        {% if form.state_of_origin.errors %}
-                            {{ form.state_of_origin(class="form-control form-control-md is-invalid") }}
+                        {{ form.nationality.label(class="form-control-label") }}:
+    
+                        {% if form.nationality.errors %}
+                            {{ form.nationality(class="form-control form-control-md is-invalid") }}
                             <div class="invalid-feedback">
-                                {% for error in form.state_of_origin.errors %}
+                                {% for error in form.nationality.errors %}
                                     <span>{{ error }}</span>
                                 {% endfor %}
                             </div>
                         {% else %}
-                            {{ form.state_of_origin(class="form-control form-control-md") }}
+                            {{ form.nationality(class="form-control form-control-md" ) }}
                         {% endif %}
                     </div>
+                            -->
+                        <div class="form-group">
+                          {{ form.country.label(class="form-control-label") }}:
+      
+                          {% if form.country.errors %}
+                              {{ form.country(class="form-control form-control-md is-invalid") }}
+                              <div class="invalid-feedback">
+                                  {% for error in form.country.errors %}
+                                      <span>{{ error }}</span>
+                                  {% endfor %}
+                              </div>
+                          {% else %}
+                              {{ form.country(class="form-control form-control-md", id="country" ) }}
+                          {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.state_of_origin.label(class="form-control-label") }}:
+                            
+                            {% if form.state_of_origin.errors %}
+                                {{ form.state_of_origin(class="form-control form-control-md is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.state_of_origin.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.state_of_origin(class="form-control form-control-md", type="state") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.lga.label(class="form-control-label") }}:
+                            
+                            {% if form.lga.errors %}
+                                {{ form.lga(class="form-control form-control-md is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.lga.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.lga(class="form-control form-control-md", type="lga") }}
+                            {% endif %}
+                        </div>
+                    
                     <div class="form-group">
                         {{ form.marital_status.label(class="form-control-label") }}:
                         
@@ -116,6 +190,20 @@
                             </div>
                         {% else %}
                             {{ form.phone(class="form-control form-control-md") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.telephone.label(class="form-control-label") }}:
+                        
+                        {% if form.telephone.errors %}
+                            {{ form.telephone(class="form-control form-control-md is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.telephone.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.telephone(class="form-control form-control-md") }}
                         {% endif %}
                     </div>
                     <div class="form-group">
